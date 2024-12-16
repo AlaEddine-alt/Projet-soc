@@ -1,0 +1,64 @@
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:tns="http://example.com/jobportal"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             targetNamespace="http://example.com/jobportal">
+
+    <types>
+        <xsd:schema targetNamespace="http://example.com/jobportal">
+            <xsd:element name="GetJobOfferRequest">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="id" type="xsd:long" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="GetJobOfferResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="jobOffer" type="tns:JobOffer" />
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:complexType name="JobOffer">
+                <xsd:sequence>
+                    <xsd:element name="id" type="xsd:long" />
+                    <xsd:element name="title" type="xsd:string" />
+                    <xsd:element name="description" type="xsd:string" />
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:schema>
+    </types>
+
+    <message name="GetJobOfferRequest">
+        <part name="parameters" element="tns:GetJobOfferRequest" />
+    </message>
+    <message name="GetJobOfferResponse">
+        <part name="parameters" element="tns:GetJobOfferResponse" />
+    </message>
+
+    <portType name="JobOfferPortType">
+        <operation name="GetJobOffer">
+            <input message="tns:GetJobOfferRequest" />
+            <output message="tns:GetJobOfferResponse" />
+        </operation>
+    </portType>
+
+    <binding name="JobOfferSoapBinding" type="tns:JobOfferPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <operation name="GetJobOffer">
+            <soap:operation soapAction="http://example.com/jobportal/GetJobOffer" />
+            <input>
+                <soap:body use="literal" />
+            </input>
+            <output>
+                <soap:body use="literal" />
+            </output>
+        </operation>
+    </binding>
+
+    <service name="JobOfferService">
+        <port name="JobOfferPort" binding="tns:JobOfferSoapBinding">
+            <soap:address location="http://localhost:8080/ws" />
+        </port>
+    </service>
+</definitions>
