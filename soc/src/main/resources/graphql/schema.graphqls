@@ -7,13 +7,34 @@ type JobOffer {
     company: Company!
 }
 
+type Company {
+    id: ID!
+    name: String!
+    jobOffers: [JobOffer]
+}
+
 type Query {
     getAllJobOffers: [JobOffer]
     getJobOfferById(id: ID!): JobOffer
-    getCompanyById(id:ID!): Company
+    getCompanyById(id: ID!): Company
+    getCompanyByJobOffer(jobOffer: JobOfferInput!): Company
 }
 
 type Mutation {
     createJobOffer(title: String!, description: String!, company: String!, location: String!, salary: Float): JobOffer
     deleteJobOffer(id: ID!): Boolean
+}
+
+input JobOfferInput {
+    id: ID
+    title: String
+    description: String
+    location: String
+    salary: Float
+    company: CompanyInput
+}
+
+input CompanyInput {
+    id: ID
+    name: String
 }

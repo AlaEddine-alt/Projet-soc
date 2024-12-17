@@ -1,22 +1,35 @@
 package com.soc.soc.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+
+import lombok.Getter;
+import lombok.Setter;
+
 
 @Entity
-@Data
+@Getter
+@Setter
 public class JobOffer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String source;
     private String title;
-    private String description;
-    private String location;
-    private Double salary;
+    private int nb_posts;
+    private String post_date;
+    private String contact;
+
+
+
+
+    private String contact_info;
+
+
+
 
     @ManyToOne
-    private Company company;
+    public Company company;
 
 
 
