@@ -1,11 +1,10 @@
 package com.soc.soc.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
 
 @Entity
+@Data
 public class JobOffer {
 
     @Id
@@ -13,6 +12,15 @@ public class JobOffer {
     private Long id;
     private String title;
     private String description;
+    private String location;
+    private Double salary;
+
+    @ManyToOne
+    private Company company;
+
+
+
+
 
     // Getters et setters
 }

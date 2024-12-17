@@ -1,4 +1,4 @@
-<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+<!--<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
              xmlns:tns="http://example.com/jobportal"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
              targetNamespace="http://example.com/jobportal">
@@ -61,4 +61,4 @@
             <soap:address location="http://localhost:8080/ws" />
         </port>
     </service>
-</definitions>
+</definitions> -->

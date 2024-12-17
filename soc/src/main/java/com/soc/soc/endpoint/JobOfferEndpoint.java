@@ -11,7 +11,7 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 @Endpoint
 public class JobOfferEndpoint {
 
-    private static final String NAMESPACE_URI = "http://example.com/jobportal";
+    /* static final String NAMESPACE_URI = "http://example.com/jobportal";
 
     private final JobOfferService jobOfferService;
 
@@ -26,5 +26,5 @@ public class JobOfferEndpoint {
         GetJobOfferResponse response = new GetJobOfferResponse();
         response.setJobOffer(jobOffer);
         return response;
-    }
+    } */
 }

@@ -1,0 +1,19 @@
+type JobOffer {
+    id: ID!
+    title: String!
+    description: String!
+    location: String!
+    salary: Float
+    company: Company!
+}
+
+type Query {
+    getAllJobOffers: [JobOffer]
+    getJobOfferById(id: ID!): JobOffer
+    getCompanyById(id:ID!): Company
+}
+
+type Mutation {
+    createJobOffer(title: String!, description: String!, company: String!, location: String!, salary: Float): JobOffer
+    deleteJobOffer(id: ID!): Boolean
+}
